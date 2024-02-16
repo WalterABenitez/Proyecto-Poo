@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Club Social Desportivo Ascensión</title>
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div class="container-fluid" layout:fragment="page-content">
+		<h1 th:text="${titulo}"></h1>
+		<br>
+		<form class="form-inline d-flex" th:action="@{socios-vitalicios}">
+			<div class="form-group mb-2">
+				<label class="mr-2">Filtrar Número: </label> <input type="text"
+					name="idKey" id="idKey" class="mr-2" th:value="${idKey}">
+			</div>
+			&nbsp;&nbsp;
+			<div class="form-group mb-2">
+				<label class="mr-2">Filtrar Nombre: </label> <input type="text"
+					name="key" id="key" class="mr-3" th:value="${key}">
+			</div>
+		
+			&nbsp;&nbsp;
+			<div class="form-group mb-2">
+				<label class="mr-2">Filtrar Apellido: </label> <input type="text"
+					name="surnameKey" id="surnameKey" class="mr-2"
+					th:value="${surnameKey}">
+			</div>
+
+			&nbsp;&nbsp; <input type="submit" class="btn btn-dark  mb-2" value="Buscar"> &nbsp;&nbsp; 
+			<input type="button" class="btn btn-dark mb-2" value="Limpiar" onclick="limpiarCamposYRedirigir()">
+		</form>
+		<br>
+
+		<table class="table">
+			<!-- Encabezados de la tabla -->
+			<thead>
+				<tr>
+					<th>N° de socio</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Fecha de admisión</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+
+			<!-- Contenido de la tabla -->
+			<tbody>
+				<tr th:each="socio : ${socios}">
+					<td th:text="${socio.id}"></td>
+					<td th:text="${socio.name}"></td>
+					<td th:text="${socio.surname}"></td>
+					<td th:text="${socio.admission_date}"></td>
+					<td>
+<!-- 					"btn btn-sm btn-success"  "btn btn-sm btn-outline-success"-->
+					
+					<a th:href="@{/ver/{id}(id=${socio.id})}" class="btn btn-sm btn-success">Ver</a> 
+					<a th:href="@{/editar/{id}(id=${socio.id})}" class="btn btn-sm btn-success">Editar</a> 
+					<a th:href="@{/eliminar/{id}(id=${socio.id})}" class="btn btn-sm btn-success" onclick="return confirmarEliminar()">Eliminar</a>
+					
+					</td>
+				</tr>
+			</tbody>
+
+
+		</table>
+
+		<th:block layout:fragment="page-scripts">
+		</th:block>
+
+
+		<script type="text/javascript">
+   
+    		function limpiarCamposYRedirigir() {
+    			window.location='/socios-vitalicios';
+    } 
+       </script>
+
+		<script>
+   		function confirmarEliminar() {
+	        var confirmacion = confirm("¿Estás seguro de que deseas eliminar?");
+	        return confirmacion;
+    }
+	   </script>
+
+
+	</div>
+
+</body>
+
+</html>

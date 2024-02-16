@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Editar Socio</title>
+</head>
+<body>
+	<div class="container-fluid" layout:fragment="page-content">
+
+		<div class="row">
+			<h1 class="text-center">Editar Socio</h1>
+
+			<div class="card-body">
+
+				<form th:action="@{/guardar-socio}" th:object="${socio}"
+					method="post" onsubmit="return validarFormulario();">
+
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>ID:</label>
+							<input type="text" name="id" th:field="*{id}" class="form-control" readonly="readonly">
+						</div>
+						<div class="col-md-6">
+							<label>Nombre:</label>
+							<input type="text" name="name" th:field="*{name}" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Apellido:</label>
+							<input type="text" name="surname" th:field="*{surname}" class="form-control">
+						</div>
+						<div class="col-md-6">
+							<label>Telefono:</label>
+							<input type="text" name="telephone" th:field="*{telephone}" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Dirección:</label>
+							<input type="text" id="address" name="address" th:field="*{address}" class="form-control" required>
+						</div>
+						<div class="col-md-6">
+							<label>Localidad:</label>
+							<input type="text" id="location" name="location" th:field="*{location}" class="form-control" required>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Número de documento:</label>
+							<input type="text" id="document_number" name="document_number" th:field="*{document_number}" class="form-control" required>
+						</div>
+						<div class="col-md-6">
+							<label>Fecha de Nacimiento:</label>
+							<input type="date" id="bthday_date" name="bthday_date" th:field="*{bthday_date}" class="form-control" required>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Fecha de Admisión:</label>
+							<input type="date" id="admission_date" name="admission_date" th:field="*{admission_date}" class="form-control" required>
+						</div>
+						<div class="col-md-6">
+							<label>Aceptado:</label>
+							<select id="accepted" name="accepted" th:field="*{accepted}" class="form-control" required>
+								<option value="" selected>Elige...</option>
+								<option value="Si">Sí</option>
+								<option value="No">No</option>
+							</select>
+						</div>
+					</div>
+
+					<br>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input type="submit" class="btn btn-info mb-2" value="Guardar">
+						</div>
+						<div class="col-md-6">
+							<input type="button" class="btn btn-secondary mb-2" value="Cancelar" onclick="limpiarCamposYRedirigir()">
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript">
+			function limpiarCamposYRedirigir() {
+				window.location = '/socios';
+			}
+		</script>
+		<script>
+			function validarTelefono() {
+				var telefono = document.getElementById("telephone").value;
+				// Expresión regular para permitir solo números
+				var regex = /^[0-9]+$/;
+				if (!regex.test(telefono)) {
+					alert("Por favor, ingrese solo números en el campo de teléfono.");
+					return false; // Evita que se envíe el formulario
+				}
+				return true; // Permite enviar el formulario
+			}
+
+			function validarFormulario() {
+				if (!validarTelefono()) {
+					return false;
+				}
+
+				var docNumber = document.getElementById("document_number").value;
+
+				// Verificar número de documento
+				var regexDocNumber = /^[0-9]+$/;
+				if (!regexDocNumber.test(docNumber) || docNumber.length < 7) {
+					alert("Número de documento debe contener solo números y tener al menos 7 dígitos.");
+					return false;
+				}
+
+				return true; // Permite enviar el formulario
+			}
+		</script>
+	</div>
+</body>
+</html>
+
