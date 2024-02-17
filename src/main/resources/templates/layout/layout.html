@@ -15,10 +15,10 @@
 </head>
 <body class="overflow-hidden">
 	<!-- Top navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light header-navbar">
+	<nav class="navbar navbar-expand-lg navbar-light header-navbar py-1">
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<div class="sidebar-heading text-white m-0">
+				<div class="sidebar-heading text-white">
 					<img class="col-1 m-0 p-0" src="../assets/images/icon-club.png" alt="icon Club Ascencion"/>
 				</div>
 				<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -37,9 +37,9 @@
 		<nav class="border-end" id="sidebar-wrapper">
 			<h6 class="text-secondary mt-2 ms-1">Menu</h6>
 			<ul class="list-group border-top">
-				<li><a class="list-group-item list-group-item-action border-0" id="socios" th:href="@{/socios}"><i class="fas fa-address-card aside-icon"></i>Socios</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" id="socios"th:href="@{/socios}"><i class="fas fa-address-card aside-icon"></i>Socios</a></li>
 				<li><a class="list-group-item list-group-item-action border-0" id="creacion" th:href="@{/nuevo-socio}"><i class="fas fa-user-plus aside-icon"></i>Creación</a></li>
-				<li><a class="list-group-item list-group-item-action border-0" id="cobrar" th:href="@{/cobrar-socio}"><i class="fas fa-coins aside-icon"></i>Cobrar</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" id="cobrar-socio" th:href="@{/cobrar-socio}"><i class="fas fa-coins aside-icon"></i>Cobrar</a></li>
 				<li><a class="list-group-item list-group-item-action border-0" id="socios-prendientes" th:href="@{/socios-pendientes}"><i class="fas fa-hourglass-half aside-icon"></i>Socios Pendientes</a></li>
 				<li><a class="list-group-item list-group-item-action border-0" id="socios-vitalicios" th:href="@{/socios-vitalicios}"><i class="fas fa-infinity aside-icon"></i>Socios Vitalicios</a></li>
 			</ul>
