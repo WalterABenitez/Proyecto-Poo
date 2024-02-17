@@ -11,36 +11,30 @@
 </head>
 
 <body>
-	<div class="container-fluid" layout:fragment="page-content">
-		<h1 th:text="${titulo}"></h1>
-		<br>
+	<div class="container-fluid mt-2" layout:fragment="page-content">
+		<h1 class="text-secondary fs-3" th:text="${titulo}"></h1>
 
-		<form class="form-inline d-flex" th:action="@{/cobrar-socio}">
-			<div class="form-group mb-2">
+		<form class="form-inline d-flex align-items-center" th:action="@{/cobrar-socio}">
+			<div class="form-group mb-2 me-2 flex-grow-1">
 				<label class="mr-2">Filtrar Número: </label> <input type="text"
-					name="idKey" id="idKey" class="mr-2" th:value="${idKey}">
+					name="idKey" id="idKey" class="form-control form-control-sm" th:value="${idKey}">
 			</div>
-			&nbsp;&nbsp;
-			<div class="form-group mb-2">
+
+			<div class="form-group mb-2 me-2 flex-grow-1">
 				<label class="mr-2">Filtrar Nombre: </label> <input type="text"
-					name="key" id="key" class="mr-3" th:value="${key}">
+					name="key" id="key" class="form-control form-control-sm" th:value="${key}">
 			</div>
 
-			&nbsp;&nbsp;
-			<div class="form-group mb-2">
-				<label class="mr-2">Filtrar Apellido: </label> <input type="text"
-					name="surnameKey" id="surnameKey" class="mr-2"
-					th:value="${surnameKey}">
+			<div class="form-group mb-2 me-2 flex-grow-1">
+				<label class="mr-2">Filtrar Apellido: </label> 
+				<input type="text" name="surnameKey" id="surnameKey" class="form-control form-control-sm" th:value="${surnameKey}">
 			</div>
 
-			&nbsp;&nbsp; <input type="submit"
-				class="btn btn-dark  mb-2" value="Buscar"> &nbsp;&nbsp;
-			<input type="button" class="btn btn-dark mb-2" value="Limpiar"
-				onclick="limpiarCamposYRedirigir()">
+			<input type="submit" class="btn btn-success btn-sm me-2 mt-3" value="Buscar">
+			<input type="button" class="btn btn-secondary btn-sm mt-3" value="Limpiar" onclick="limpiarCamposYRedirigir()">
 		</form>
-		<br>
 
-		<table class="table">
+		<table class="table table-sm">
 			<!-- Encabezados de la tabla -->
 			<thead>
 				<tr>
