@@ -36,12 +36,12 @@
 		<!-- Sidebar-->
 		<nav class="border-end" id="sidebar-wrapper">
 			<h6 class="text-secondary mt-2 ms-1">Menu</h6>
-			<ul class="list-group border-top">
-				<li><a class="list-group-item list-group-item-action border-0" id="socios"th:href="@{/socios}"><i class="fas fa-address-card aside-icon"></i>Socios</a></li>
-				<li><a class="list-group-item list-group-item-action border-0" id="creacion" th:href="@{/nuevo-socio}"><i class="fas fa-user-plus aside-icon"></i>Creación</a></li>
-				<li><a class="list-group-item list-group-item-action border-0" id="cobrar-socio" th:href="@{/cobrar-socio}"><i class="fas fa-coins aside-icon"></i>Cobrar</a></li>
-				<li><a class="list-group-item list-group-item-action border-0" id="socios-prendientes" th:href="@{/socios-pendientes}"><i class="fas fa-hourglass-half aside-icon"></i>Socios Pendientes</a></li>
-				<li><a class="list-group-item list-group-item-action border-0" id="socios-vitalicios" th:href="@{/socios-vitalicios}"><i class="fas fa-infinity aside-icon"></i>Socios Vitalicios</a></li>
+			<ul class="list-group border-top" id="list-tab" role="tablist">
+				<li><a class="list-group-item list-group-item-action border-0" th:href="@{/socios}" href="#socios"><i class="fas fa-address-card aside-icon"></i>Socios</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" th:href="@{/nuevo-socio}" href="#creacion"><i class="fas fa-user-plus aside-icon"></i>Creación</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" th:href="@{/cobrar-socio}" href="#cobrar-socio"><i class="fas fa-coins aside-icon"></i>Cobrar</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" th:href="@{/socios-pendientes}" href="#socios-prendientes"><i class="fas fa-hourglass-half aside-icon"></i>Socios Pendientes</a></li>
+				<li><a class="list-group-item list-group-item-action border-0" th:href="@{/socios-vitalicios}" href="#socios-vitalicios"><i class="fas fa-infinity aside-icon"></i>Socios Vitalicios</a></li>
 			</ul>
 		</nav>
 		<!-- Page content wrapper-->
