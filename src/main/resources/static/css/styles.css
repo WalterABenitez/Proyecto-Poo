@@ -5155,8 +5155,8 @@ textarea.form-control-lg {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #47b984;
+  border-color: #47b984;
 }
 .list-group-item + .list-group-item {
   border-top-width: 0;
@@ -11371,7 +11371,8 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   width: 25px;
 }
 
-#socios:target{
-  color: #ffffff !important;
-  background-color: #0c4128 !important;
+.active-page:target{
+  background-color: #47b984;
+  color: #ffffff;
 }
+
