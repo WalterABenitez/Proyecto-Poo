@@ -13,62 +13,63 @@
 </head>
 
 <body>
-    <div class="container-fluid" layout:fragment="page-content">
-        <h1 th:text="${titulo}"></h1>
-        <br>
+    <div class="container-fluid mt-2" layout:fragment="page-content">
+        <h1 class="text-secondary fs-3" th:text="${titulo}"></h1>
         <form th:action="@{/guardar-socio}" th:object="${nuevoSocio}" method="post" onsubmit="return validarFormulario();">
-            <div class="form-group row">
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
                 <div class="col-md-6">
                     <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" th:field="*{name}" class="form-control" required>
+                    <input type="text" id="name" name="name" th:field="*{name}" class="form-control form-control-sm" required>
                 </div>
                 <div class="col-md-6">
                     <label for="surname">Apellido:</label>
-                    <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control" required>
+                    <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control form-control-sm" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
                 <div class="col-md-6">
                     <label for="address">Dirección:</label>
-                    <input type="text" id="address" name="address" th:field="*{address}" class="form-control" required>
+                    <input type="text" id="address" name="address" th:field="*{address}" class="form-control form-control-sm" required>
                 </div>
                 <div class="col-md-6">
                     <label for="location">Localidad:</label>
-                    <input type="text" id="location" name="location" th:field="*{location}" class="form-control" required>
+                    <input type="text" id="location" name="location" th:field="*{location}" class="form-control form-control-sm" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
                 <div class="col-md-6">
                     <label for="document_number">Número de documento:</label>
-                    <input type="text" id="document_number" name="document_number" th:field="*{document_number}" class="form-control" required>
+                    <input type="text" id="document_number" name="document_number" th:field="*{document_number}" class="form-control form-control-sm" required>
                 </div>
                 <div class="col-md-6">
                     <label for="bthday_date">Fecha de Nacimiento:</label>
-                    <input type="date" id="bthday_date" name="bthday_date" th:field="*{bthday_date}" class="form-control" required>
+                    <input type="date" id="bthday_date" name="bthday_date" th:field="*{bthday_date}" class="form-control form-control-sm" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
                 <div class="col-md-6">
                     <label for="telephone">Teléfono:</label>
-                    <input type="text" id="telephone" name="telephone" th:field="*{telephone}" class="form-control" required>
+                    <input type="text" id="telephone" name="telephone" th:field="*{telephone}" class="form-control form-control-sm" required>
                 </div>
                 <div class="col-md-6">
                     <label for="admission_date">Fecha de Admisión:</label>
-                    <input type="date" id="admission_date" name="admission_date" th:field="*{admission_date}" class="form-control" required>
+                    <input type="date" id="admission_date" name="admission_date" th:field="*{admission_date}" class="form-control form-control-sm" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group mb-2 me-2 flex-grow-1 row d-flex align-items-end">
                 <div class="col-md-6">
                     <label for="accepted">Aceptado:</label>
-                    <select id="accepted" name="accepted" th:field="*{accepted}" class="form-control" required>
+                    <select id="accepted" name="accepted" th:field="*{accepted}" class="form-control form-control-sm" required>
                         <option value="" selected>Elige...</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-sm btn-success align-self-center w-100" value="Guardar">
+                </div>
             </div>
-            <br>
-            <input type="submit" class="btn btn-sm btn-success" value="Guardar">
+
         </form>
 
         <th:block layout:fragment="page-scripts">
@@ -102,7 +103,7 @@
                 return true; // Permite enviar el formulario
             }
         </script>
-        <script src="/js/app.js}" charset="UTF-8"></script>
+        <script src="/js/app.js" charset="UTF-8"></script>
     </div>
 </body>
 </html>
