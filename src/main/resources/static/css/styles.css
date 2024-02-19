@@ -11402,3 +11402,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   width: 45px;
   height: auto;
 }
+
+#dashboard-page{
+  background-image: url("../assets/images/unnoba-brand.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 95%;
+  background-size: 8rem;
+}
