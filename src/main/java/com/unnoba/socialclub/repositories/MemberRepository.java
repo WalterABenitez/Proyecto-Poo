@@ -26,11 +26,11 @@ public interface MemberRepository extends JpaRepository <Member, Integer>{
 	@Query ("SELECT c FROM Charge c WHERE c.member_id= ?1")
 	public List<Charge> memberCharges(Member member);
 	
-	@Query ("SELECT m FROM Member m WHERE (YEAR(CURRENT_DATE) - YEAR(m.admission_date) < 10) AND (m.name LIKE %?1% AND m.surname LIKE %?2%)")
-	public List <Member> findWithoutLifeMembersOption2 (String nameKey, String surnameKey);
+	@Query ("SELECT m FROM Member m WHERE (YEAR(CURRENT_DATE) - YEAR(m.admission_date) < 10) AND (m.name LIKE %?1% AND m.surname LIKE %?2%AND m.address LIKE %?3% )")
+	public List <Member> findWithoutLifeMembersOption2 (String nameKey, String surnameKey, String addressKey);
 	
-	@Query ("SELECT m FROM Member m WHERE (YEAR(CURRENT_DATE) - YEAR(m.admission_date) < 10) AND (m.name LIKE %?1% AND m.surname LIKE %?2% AND m.id = ?3)")
-	public List <Member> findWithoutLifeMembers (String nameKey, String surnameKey, Integer idKey);
+	@Query ("SELECT m FROM Member m WHERE (YEAR(CURRENT_DATE) - YEAR(m.admission_date) < 10) AND (m.name LIKE %?1% AND m.surname LIKE %?2% AND m.id = ?3 AND m.address LIKE %?4%)")
+	public List <Member> findWithoutLifeMembers (String nameKey, String surnameKey, Integer idKey, String addressKey);
 	
 	@Query ("SELECT m FROM Member m WHERE YEAR(CURRENT_DATE) - YEAR(m.admission_date) < 10")
 	public List <Member> findAllWithoutLifeMembers ();

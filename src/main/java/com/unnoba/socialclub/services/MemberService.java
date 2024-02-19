@@ -125,34 +125,35 @@ public class MemberService {
 
 			return memberRepository.findLifeMembers();
 		}
+	
 	}
 
-	public List<Member> getAllMembersWithoutLifeMembers(String nameKey, String surnameKey, String idKey) {
+	public List<Member> getAllMembersWithoutLifeMembers(String nameKey, String surnameKey, String idKey, String addressKey) {
 
-		if (nameKey != null && surnameKey != null && idKey != null && !idKey.isEmpty()) {
+		if (nameKey != null && surnameKey != null && idKey != null && !idKey.isEmpty() && addressKey != null) {
 
-			return memberRepository.findWithoutLifeMembers(nameKey, surnameKey, Integer.parseInt(idKey));
+			return memberRepository.findWithoutLifeMembers(nameKey, surnameKey, Integer.parseInt(idKey), addressKey);
 
 		} else if (nameKey != null && surnameKey != null) {
-			return memberRepository.findWithoutLifeMembersOption2(nameKey, surnameKey);
+			return memberRepository.findWithoutLifeMembersOption2(nameKey, surnameKey, addressKey);
 
 		} else if (nameKey != null && idKey != null && !idKey.isEmpty()) {
 
-			return memberRepository.findWithoutLifeMembers(nameKey, null, Integer.parseInt(idKey));
+			return memberRepository.findWithoutLifeMembers(nameKey, null, Integer.parseInt(idKey), addressKey);
 
 		} else if (surnameKey != null && idKey != null && !idKey.isEmpty()) {
-			return memberRepository.findWithoutLifeMembers(null, surnameKey, Integer.parseInt(idKey));
+			return memberRepository.findWithoutLifeMembers(null, surnameKey, Integer.parseInt(idKey), addressKey);
 
 		} else if (nameKey != null) {
-			return memberRepository.findWithoutLifeMembers(nameKey, null, null);
+			return memberRepository.findWithoutLifeMembers(nameKey, null, null, addressKey);
 
 		} else if (surnameKey != null) {
 
-			return memberRepository.findWithoutLifeMembers(null, surnameKey, null);
+			return memberRepository.findWithoutLifeMembers(null, surnameKey, null, addressKey);
 
 		} else if (idKey != null && !idKey.isEmpty()) {
 
-			return memberRepository.findWithoutLifeMembers(null, null, Integer.parseInt(idKey));
+			return memberRepository.findWithoutLifeMembers(null, null, Integer.parseInt(idKey), addressKey);
 		} else {
 
 			return memberRepository.findAllWithoutLifeMembers();

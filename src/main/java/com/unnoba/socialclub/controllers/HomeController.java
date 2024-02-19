@@ -76,10 +76,10 @@ public class HomeController {
 
 	@GetMapping("/socios-pendientes")
 	public String goDebtMembers(Model model, @Param("key") String key, @Param("surnameKey") String surnameKey,
-			@Param("idKey") String idKey) {
+			@Param("idKey") String idKey, @Param("addressKey") String addressKey) {
 
 		model.addAttribute("titulo", "Socios pendientes de pago");
-		List<Member> memberList = memberService.getAllDebtMembers(key, surnameKey, idKey);
+		List<Member> memberList = memberService. getAllMembersWithoutLifeMembers(key, surnameKey, idKey, addressKey);
 
 		model.addAttribute("socios", memberList);
 		model.addAttribute("key", key);
@@ -146,10 +146,10 @@ public class HomeController {
 
 	@GetMapping("/cobrar-socio")
 	public String goCharge(Model model, @Param("key") String key, @Param("surnameKey") String surnameKey,
-			@Param("idKey") String idKey) {
+			@Param("idKey") String idKey, @Param("addressKey") String addressKey) {
 
 		model.addAttribute("titulo", "Cobranzas");
-		List<Member> memberList = memberService.getAllMembersWithoutLifeMembers(key, surnameKey, idKey);
+		List<Member> memberList = memberService.getAllMembersWithoutLifeMembers(key, surnameKey, idKey, addressKey);
 		model.addAttribute("socios", memberList);
 
 		return "chargeMembers";
