@@ -31,7 +31,7 @@
 					th:value="${surnameKey}">
 			</div>
 
- 			<input type="submit" class="btn btn-success btn-sm mt-3" value="Buscar"> &nbsp;&nbsp; 
+ 			<input type="submit" class="btn btn-success btn-sm mt-3 me-2" value="Buscar"> 
 			<input type="button" class="btn btn-secondary btn-sm mt-3" value="Limpiar" onclick="limpiarCamposYRedirigir()">
 			
 		</form>
@@ -56,7 +56,7 @@
 						<td th:text="${socio.surname}"></td>
 						<td th:text="${socio.address}"></td>
 						<td>
-						<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary"></i></a>
+						<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cobrar"></i></a>
 						</td>
 					</tr>
 				</tbody>

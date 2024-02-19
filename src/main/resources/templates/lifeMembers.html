@@ -57,8 +57,8 @@
 						<td th:text="${socio.admission_date}"></td>
 						<td>
 							<a th:href="@{/ver/{id}(id=${socio.id})}" data-bs-toggle="tooltip" data-bs-title="Ver"><i class="far fa-eye text-secondary me-2"></i></a> 
-							<a th:href="@{/editar/{id}(id=${socio.id})}"><i class="fas fa-user-edit text-secondary me-2"></i></a> 
-							<a th:href="@{/eliminar/{id}(id=${socio.id})}" onclick="return confirmarEliminar()"><i class="fas fa-trash-alt text-secondary"></i></a>
+							<a th:href="@{/editar/{id}(id=${socio.id})}"><i class="fas fa-user-edit text-secondary me-2"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar"></i></a> 
+							<a th:href="@{/eliminar/{id}(id=${socio.id})}" onclick="return confirmarEliminar()"><i class="fas fa-trash-alt text-secondary"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Borrar"></i></a>
 						</td>
 					</tr>
 				</tbody>

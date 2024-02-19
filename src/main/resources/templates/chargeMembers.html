@@ -54,8 +54,8 @@
 						<td th:text="${socio.surname}"></td>
 						<td th:text="${socio.address}"></td>
 						<td>
-						<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary me-2"></i></a> 
-						<a th:href="@{/historial/{id}(id=${socio.id})}"><i class="fas fa-book text-secondary"></i></a>
+						<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cobrar"></i></a> 
+						<a th:href="@{/historial/{id}(id=${socio.id})}"><i class="fas fa-book text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Historial"></i></a>
 						</td>
 					</tr>
 				</tbody>

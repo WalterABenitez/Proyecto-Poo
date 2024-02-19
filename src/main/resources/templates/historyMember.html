@@ -31,7 +31,7 @@
 						<td>
 							<span th:text="${#dates.format(charge.date, 'yyyy/MM/dd')}"></span></td>
 						<td>
-							<a th:href="@{/comprobante/{id}(id=${charge.id})}"><i class="fas fa-file-invoice-dollar text-secondary"></i></a></td>
+							<a th:href="@{/comprobante/{id}(id=${charge.id})}"><i class="fas fa-file-invoice-dollar text-secondary"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Comprobante"></i></a></td>
 					</tr>
 				</tbody>
 			</table>
