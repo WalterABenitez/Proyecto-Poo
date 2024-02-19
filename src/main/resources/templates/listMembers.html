@@ -10,9 +10,9 @@
 
 </head>
 
-<body>
-	<div class="container-fluid mt-2" layout:fragment="page-content">
-		<h1 class="text-secondary fs-3" th:text="${titulo}"></h1>
+<body class="max-h" onload="activePage()">
+	<div class="container-fluid" layout:fragment="page-content">
+		<h1 class="text-secondary fs-3 pt-2" th:text="${titulo}"></h1>
 
 		<form class="form-inline d-flex align-items-center" th:action="@{/socios}">
 				<div class="form-group mb-2 me-2 flex-grow-1">
@@ -34,33 +34,33 @@
 			<input type="button" class="btn btn-secondary btn-sm mt-3" value="Limpiar" onclick="limpiarCamposYRedirigir()">
 		</form>
 
-		<table class="table table-striped table-sm">
-			<!-- Encabezados de la tabla -->
-			<thead class="text-center">
-				<tr>
-					<th scope="col">N° de socio</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Apellido</th>
-					<th scope="col">Acciones</th>
-				</tr>
-			</thead>
-
-			<!-- Contenido de la tabla -->
-			<tbody class="text-center">
-				<tr th:each="socio : ${socios}">
-					<td th:text="${socio.id}"></td>
-					<td th:text="${socio.name}"></td>
-					<td th:text="${socio.surname}"></td>
-					<td>
-						<a th:href="@{/ver/{id}(id=${socio.id})}"><i class="far fa-eye text-secondary me-2"></i></a> 
-						<a th:href="@{/editar/{id}(id=${socio.id})}"><i class="fas fa-user-edit text-secondary me-2"></i></a> 
-						<a th:href="@{/eliminar/{id}(id=${socio.id})}" onclick="return confirmarEliminar()"><i class="fas fa-trash-alt text-secondary"></i></a>
-					</td>
-				</tr>
-			</tbody>
-
-
-		</table>
+		<div class="member-table-container">
+			<table class="table table-striped table-sm">
+				<!-- Encabezados de la tabla -->
+				<thead class="text-center sticky-top bg-light">
+					<tr>
+						<th scope="col">N° de socio</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Acciones</th>
+					</tr>
+				</thead>
+	
+				<!-- Contenido de la tabla -->
+				<tbody class="text-center">
+					<tr th:each="socio : ${socios}">
+						<td th:text="${socio.id}"></td>
+						<td th:text="${socio.name}"></td>
+						<td th:text="${socio.surname}"></td>
+						<td>
+							<a th:href="@{/ver/{id}(id=${socio.id})}"><i class="far fa-eye text-secondary me-2"></i></a> 
+							<a th:href="@{/editar/{id}(id=${socio.id})}"><i class="fas fa-user-edit text-secondary me-2"></i></a> 
+							<a th:href="@{/eliminar/{id}(id=${socio.id})}" onclick="return confirmarEliminar()"><i class="fas fa-trash-alt text-secondary"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<th:block layout:fragment="page-scripts">
 		</th:block>
@@ -79,10 +79,13 @@
 	        return confirmacion;
     }
 	   </script>
-
-
-	</div>
-
+<script>
+	function activePage(){
+		const page = document.getElementById("socios");
+		console.log(page.classList.add('active-page'))
+	}
+</script>
+</div>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Editar Socio</title>
 </head>
-<body>
+<body onload="activePage()">
 	<div class="container-fluid mt-2" layout:fragment="page-content">
 		<div class="d-flex justify-content-between align-items-center">
 			<h1 class="text-secondary fs-3">Editar solcio</h1>
@@ -114,6 +114,12 @@
 				return true; // Permite enviar el formulario
 			}
 		</script>
+				<script>
+					function activePage(){
+							const page = document.getElementById("socios");
+							page.classList.add('active-page')
+					}
+				</script>
 	</div>
 </body>
 </html>

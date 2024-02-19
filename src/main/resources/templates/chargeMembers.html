@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="max-h" onload="activePage()">
 	<div class="container-fluid mt-2" layout:fragment="page-content">
 		<h1 class="text-secondary fs-3" th:text="${titulo}"></h1>
 
@@ -33,35 +33,34 @@
 			<input type="submit" class="btn btn-success btn-sm me-2 mt-3" value="Buscar">
 			<input type="button" class="btn btn-secondary btn-sm mt-3" value="Limpiar" onclick="limpiarCamposYRedirigir()">
 		</form>
-
-		<table class="table table-striped table-sm">
-			<!-- Encabezados de la tabla -->
-			<thead class="text-center">
-				<tr>
-					<th>N° de socio</th>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Dirección</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-
-			<!-- Contenido de la tabla -->
-			<tbody class="text-center">
-				<tr th:each="socio : ${socios}">
-					<td th:text="${socio.id}"></td>
-					<td th:text="${socio.name}"></td>
-					<td th:text="${socio.surname}"></td>
-					<td th:text="${socio.address}"></td>
-					<td>
-					<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary me-2"></i></a> 
-					<a th:href="@{/historial/{id}(id=${socio.id})}"><i class="fas fa-book text-secondary"></i></a>
-					</td>
-				</tr>
-			</tbody>
-
-
-		</table>
+		<div class="member-table-container">
+			<table class="table table-striped table-sm">
+				<!-- Encabezados de la tabla -->
+				<thead class="text-center sticky-top bg-light">
+					<tr>
+						<th>N° de socio</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Dirección</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+	
+				<!-- Contenido de la tabla -->
+				<tbody class="text-center">
+					<tr th:each="socio : ${socios}">
+						<td th:text="${socio.id}"></td>
+						<td th:text="${socio.name}"></td>
+						<td th:text="${socio.surname}"></td>
+						<td th:text="${socio.address}"></td>
+						<td>
+						<a th:href="@{/cobrar/{id}(id=${socio.id})}"><i class="fas fa-dollar-sign text-secondary me-2"></i></a> 
+						<a th:href="@{/historial/{id}(id=${socio.id})}"><i class="fas fa-book text-secondary"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<th:block layout:fragment="page-scripts">
 		</th:block>
@@ -69,6 +68,12 @@
 		<script type="text/javascript">
 			function limpiarCamposYRedirigir() {
 				window.location = '/cobrar-socio';
+			}
+		</script>
+		<script>
+			function activePage(){
+					const page = document.getElementById("cobrar-socio");
+					page.classList.add('active-page')
 			}
 		</script>
 	</div>

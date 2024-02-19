@@ -12,7 +12,7 @@
     <title>Comprobante de Pago</title>
 </head>
 
-<body>
+<body onload="activePage()">
 <div class="container-fluid h-100 position-relative" layout:fragment="page-content">
 	<button type="button" class="btn btn-primary btn-sm me-3  position-absolute top-0 end-0 mt-3 me-3" onclick="redirigir()"><i class="fas fa-arrow-circle-left me-1"></i>Volver</button>
     <div class="d-flex justify-content-center align-items-center">
@@ -71,6 +71,12 @@
     			window.location='/cobrar-socio';
 } 
      </script>
+     		<script>
+			function activePage(){
+					const page = document.getElementById("cobrar-socio");
+					page.classList.add('active-page')
+			}
+		</script>
 </div>
 
 <th:block layout:fragment="page-scripts">
