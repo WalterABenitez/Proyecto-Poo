@@ -11371,8 +11371,25 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   width: 25px;
 }
 
-.active-page:target{
+.active-page{
   background-color: #47b984;
   color: #ffffff;
 }
 
+.max-h{
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.page-wrapper{
+  height: 90vh;
+  max-height:90vh;
+  overflow: hidden;
+}
+
+.member-table-container{
+  max-height: 65vh ;
+  height: 65vh ;
+  overflow-y: auto;
+}
