@@ -51,7 +51,7 @@ public class HomeController {
 		String username = authentication.getName();
 		Usuario usuario = usuarioServicio.findByEmail(username);
 		setRol(usuario.getRol_id().getNombre());
-		model.addAttribute("titulo", "Bienvenida, " + username);
+		model.addAttribute("titulo", "Bienvenido/a, " + usuario.getNombre());
 
 		return "dashboard";
 	}
@@ -168,7 +168,7 @@ public class HomeController {
 	@GetMapping("/historial/{id}")
 	public String goHistory(Model model, @PathVariable(name = "id") int id) {
 
-		model.addAttribute("titulo", "Historial de soio");
+		model.addAttribute("titulo", "Historial de socio");
 
 		Member member = memberService.findByMemberId(id);
 		List<Charge> charges = memberService.memberCharges(member);
