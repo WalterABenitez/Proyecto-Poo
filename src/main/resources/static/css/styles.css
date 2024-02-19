@@ -11393,3 +11393,12 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   height: 65vh ;
   overflow-y: auto;
 }
+
+#side-menu{
+  min-width: 15rem;
+}
+
+.brand-icon{
+  width: 45px;
+  height: auto;
+}

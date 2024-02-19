@@ -17,55 +17,55 @@
 			<div class="card-body pt-0">
 				<form th:action="@{/guardar-socio}" th:object="${socio}" method="post" onsubmit="return validarFormulario();">
 					<div class="form-group row mb-2">
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>ID:</label>
 							<input type="text" name="id" th:field="*{id}" class="form-control form-control-sm" readonly="readonly">
 						</div>
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Nombre:</label>
 							<input type="text" name="name" th:field="*{name}" class="form-control form-control-sm">
 						</div>
 					</div>
 
 					<div class="form-group row mb-2">
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Apellido:</label>
 							<input type="text" name="surname" th:field="*{surname}" class="form-control form-control-sm">
 						</div>
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Telefono:</label>
 							<input type="text" name="telephone" th:field="*{telephone}" class="form-control form-control-sm">
 						</div>
 					</div>
 
 					<div class="form-group row mb-2">
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Dirección:</label>
 							<input type="text" id="address" name="address" th:field="*{address}" class="form-control form-control-sm" required>
 						</div>
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Localidad:</label>
 							<input type="text" id="location" name="location" th:field="*{location}" class="form-control form-control-sm" required>
 						</div>
 					</div>
 
 					<div class="form-group row mb-2">
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Número de documento:</label>
 							<input type="text" id="document_number" name="document_number" th:field="*{document_number}" class="form-control form-control-sm" required>
 						</div>
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Fecha de Nacimiento:</label>
 							<input type="date" id="bthday_date" name="bthday_date" th:field="*{bthday_date}" class="form-control form-control-sm" required>
 						</div>
 					</div>
 
 					<div class="form-group row mb-2">
-						<div class="col-md-6">
-							<label>Fecha de Admisión:</label>
+						<div class="col-6">
+							<label>F. Admisión:</label>
 							<input type="date" id="admission_date" name="admission_date" th:field="*{admission_date}" class="form-control form-control-sm" required>
 						</div>
-						<div class="col-md-6">
+						<div class="col-6">
 							<label>Aceptado:</label>
 							<select id="accepted" name="accepted" th:field="*{accepted}" class="form-control form-control-sm" required>
 								<option value="" selected>Elige...</option>
@@ -75,7 +75,7 @@
 						</div>
 					</div>
 					<div class="d-flex justify-content-end align-items-center pt-2">
-						<input type="submit" class="btn btn-success btn-sm" value="Guardar">
+						<input type="submit" class="btn btn-success btn-sm col-12 col-lg-2" value="Guardar">
 					</div>
 				</form>
 			</div>

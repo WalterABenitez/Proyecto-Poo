@@ -10,7 +10,6 @@
 window.addEventListener('DOMContentLoaded', event => {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    console.log(tooltipList)
     // Toggle the side navigation
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
@@ -23,6 +22,7 @@ window.addEventListener('DOMContentLoaded', event => {
             document.body.classList.toggle('sb-sidenav-toggled');
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
+    
     }
 
     const activePage = document.getElementById("socios");
