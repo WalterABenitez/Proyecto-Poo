@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.unnoba.socialclub.dto.ChargeDTO;
 import com.unnoba.socialclub.entities.Charge;
 import com.unnoba.socialclub.entities.Member;
 import com.unnoba.socialclub.entities.Usuario;
